@@ -129,7 +129,7 @@ Refer to `local.properties.example` for the complete list of required variables 
 ## 🔒 Security Notes
 
 - **`local.properties`** — local only, never committed. Contains all your real API keys and credentials.
-- **`google-services.json`** — standard Firebase client configuration. The API key inside it is an Android-restricted key intended for client use. It is safe to commit per [Firebase documentation](https://firebase.google.com/docs/android/setup).
+- **`google-services.json`** — standard Firebase client configuration. Make sure to download this file from your Firebase console and place it in the respective module folders (`app/`, `collegemanagementfaculty/`, `collegemanagementsystemadmin/`) before building the app. It should **not** be committed to Git.
 - **Razorpay** — Use `rzp_test_*` keys during development. Switch to `rzp_live_*` only for production.
 - **Gmail App Password** — This credential is embedded in the compiled APK, which is a known limitation of client-side SMTP. Consider moving email sending to your own backend for production use.
 - **Cloudinary `api_secret`** — This is a private credential embedded in the APK. It is embedded in the compiled binary and could theoretically be extracted. For production, consider moving Cloudinary uploads through a backend proxy.
