@@ -1,0 +1,133 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="ER Diagram" id="0">
+    <mxGraphModel dx="1389" dy="749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="process" parent="1" style="ellipse;whiteSpace=wrap;html=1;       fillColor=#4A148C;strokeColor=#ffffff;       fontColor=#ffffff;fontSize=14;fontStyle=1;       arcSize=50;" value="&lt;b&gt;0&lt;/b&gt;&lt;br&gt;COLLEGE&lt;br&gt;MANAGEMENT&lt;br&gt;SYSTEM" vertex="1">
+          <mxGeometry height="180" width="240" x="627" y="434" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" parent="1" style="rounded=0;whiteSpace=wrap;html=1;       fillColor=#1565C0;strokeColor=#ffffff;       fontColor=#ffffff;fontSize=14;fontStyle=1;" value="&lt;b&gt;ADMIN&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="80" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="faculty" parent="1" style="rounded=0;whiteSpace=wrap;html=1;       fillColor=#2E7D32;strokeColor=#ffffff;       fontColor=#ffffff;fontSize=14;fontStyle=1;" value="&lt;b&gt;FACULTY / HOD&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="1200" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="student" parent="1" style="rounded=0;whiteSpace=wrap;html=1;       fillColor=#E65100;strokeColor=#ffffff;       fontColor=#ffffff;fontSize=14;fontStyle=1;" value="&lt;b&gt;STUDENT&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="1200" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="firebase" parent="1" style="rounded=0;whiteSpace=wrap;html=1;       fillColor=#424242;strokeColor=#ffffff;       fontColor=#ffffff;fontSize=14;fontStyle=1;" value="&lt;b&gt;FIREBASE&lt;/b&gt;&lt;br&gt;(Cloud Database)" vertex="1">
+          <mxGeometry height="80" width="240" x="627" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="f_a1" edge="1" parent="1" source="admin" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#1565C0;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=1;exitY=0.2;exitDx=0;exitDy=0;       entryX=0;entryY=0.2;entryDx=0;entryDy=0;" target="process" value="Login Credentials">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_a2" edge="1" parent="1" source="admin" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#1565C0;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=1;exitY=0.4;exitDx=0;exitDy=0;       entryX=0;entryY=0.35;entryDx=0;entryDy=0;" target="process" value="Course / Subject Details">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_a3" edge="1" parent="1" source="admin" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#1565C0;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=1;exitY=0.6;exitDx=0;exitDy=0;       entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="process" value="Faculty / Student Details">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_a4" edge="1" parent="1" source="admin" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#1565C0;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=1;exitY=0.8;exitDx=0;exitDy=0;       entryX=0;entryY=0.65;entryDx=0;entryDy=0;" target="process" value="Division / Fee Structure">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_a5" edge="1" parent="1" source="process" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#2E7D32;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0;exitY=0.3;exitDx=0;exitDy=0;       entryX=1;entryY=0.3;entryDx=0;entryDy=0;" target="admin" value="Dashboard Reports">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="487" />
+              <mxPoint x="540" y="497" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_a6" edge="1" parent="1" source="process" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#2E7D32;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0;exitY=0.7;exitDx=0;exitDy=0;       entryX=1;entryY=0.7;entryDx=0;entryDy=0;" target="admin" value="Student / Faculty Lists &amp; Fee Status">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="560" />
+              <mxPoint x="500" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_f1" edge="1" parent="1" source="faculty" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#2E7D32;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0;exitY=0.3;exitDx=0;exitDy=0;       entryX=1;entryY=0.1;entryDx=0;entryDy=0;" target="process" value="Login Credentials">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_f2" edge="1" parent="1" source="faculty" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#2E7D32;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0;exitY=0.5;exitDx=0;exitDy=0;       entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="process" value="Attendance Records">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_f3" edge="1" parent="1" source="faculty" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#2E7D32;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0;exitY=0.7;exitDx=0;exitDy=0;       entryX=1;entryY=0.4;entryDx=0;entryDy=0;" target="process" value="Study Materials / Assignments">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_f4" edge="1" parent="1" source="faculty" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#2E7D32;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0;exitY=0.9;exitDx=0;exitDy=0;       entryX=1;entryY=0.55;entryDx=0;entryDy=0;" target="process" value="Timetable Slots (HOD only)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_f5" edge="1" parent="1" source="process" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#1565C0;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=1;exitY=0.3;exitDx=0;exitDy=0;       entryX=0;entryY=0.3;entryDx=0;entryDy=0;" target="faculty" value="Division Timetable / Subject List">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="488" />
+              <mxPoint x="1000" y="224" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_f6" edge="1" parent="1" source="process" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#1565C0;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=1;exitY=0.2;exitDx=0;exitDy=0;       entryX=0;entryY=0.7;entryDx=0;entryDy=0;" target="faculty" value="Student Attendance Data">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="470" />
+              <mxPoint x="1050" y="216" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_s1" edge="1" parent="1" source="student" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#E65100;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0;exitY=0.3;exitDx=0;exitDy=0;       entryX=1;entryY=0.7;entryDx=0;entryDy=0;" target="process" value="Login Credentials">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_s2" edge="1" parent="1" source="student" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#E65100;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0;exitY=0.5;exitDx=0;exitDy=0;       entryX=1;entryY=0.82;entryDx=0;entryDy=0;" target="process" value="Fee Payment (Razorpay)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_s3" edge="1" parent="1" source="student" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#E65100;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0;exitY=0.7;exitDx=0;exitDy=0;       entryX=1;entryY=0.95;entryDx=0;entryDy=0;" target="process" value="Profile View Request">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_s4" edge="1" parent="1" source="process" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#1565C0;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=1;exitY=0.75;exitDx=0;exitDy=0;       entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="student" value="Attendance Summary">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="568" />
+              <mxPoint x="1000" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_s5" edge="1" parent="1" source="process" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#1565C0;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=1;exitY=0.88;exitDx=0;exitDy=0;       entryX=0;entryY=0.7;entryDx=0;entryDy=0;" target="student" value="Materials / Assignments / Timetable / Fee Receipt">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1060" y="592" />
+              <mxPoint x="1060" y="856" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_fb1" edge="1" parent="1" source="process" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#424242;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0.3;exitY=1;exitDx=0;exitDy=0;       entryX=0.3;entryY=0;entryDx=0;entryDy=0;" target="firebase" value="Store: Users / Attendance / Fees / Materials / Timetable">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_fb2" edge="1" parent="1" source="firebase" style="edgeStyle=orthogonalEdgeStyle;html=1;       strokeColor=#9E9E9E;strokeWidth=2;       fontStyle=1;fontSize=9;       exitX=0.7;exitY=0;exitDx=0;exitDy=0;       entryX=0.7;entryY=1;entryDx=0;entryDy=0;" target="process" value="Retrieve: Profiles / Courses / Attendance / Fees (Real-time)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;       align=center;verticalAlign=middle;       whiteSpace=wrap;rounded=0;fontSize=18;       fontColor=#4A148C;" value="&lt;b&gt;DFD Level 0 — Context Diagram&lt;br&gt;College Management System&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="540" x="477" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" parent="1" style="text;html=1;strokeColor=#000000;       fillColor=#f5f5f5;fontColor=#333333;       align=center;fontSize=11;fontStyle=1;" value="&lt;b&gt;LEGEND&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="160" x="60" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="text;html=1;strokeColor=none;       fillColor=none;fontColor=#1565C0;       align=left;fontSize=10;fontStyle=1;" value="Admin Data Flow" vertex="1">
+          <mxGeometry height="25" width="160" x="60" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="text;html=1;strokeColor=none;       fillColor=none;fontColor=#2E7D32;       align=left;fontSize=10;fontStyle=1;" value="Faculty Data Flow" vertex="1">
+          <mxGeometry height="25" width="160" x="60" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="text;html=1;strokeColor=none;       fillColor=none;fontColor=#E65100;       align=left;fontSize=10;fontStyle=1;" value="Student Data Flow" vertex="1">
+          <mxGeometry height="25" width="160" x="60" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="text;html=1;strokeColor=none;       fillColor=none;fontColor=#1565C0;       align=left;fontSize=10;fontStyle=1;" value="System → Entity Flow" vertex="1">
+          <mxGeometry height="25" width="160" x="60" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" parent="1" style="text;html=1;strokeColor=none;       fillColor=none;fontColor=#424242;       align=left;fontSize=10;fontStyle=1;" value="Firebase Flow" vertex="1">
+          <mxGeometry height="25" width="160" x="60" y="855" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

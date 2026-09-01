@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_profile_card"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Downloading File"
+        android:textColor="@color/card_title"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- File Name -->
+    <TextView
+        android:id="@+id/tvDownloadFileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="assignment_file.pdf"
+        android:textColor="@color/deep_blue"
+        android:textSize="13sp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBarDownload"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="@color/deep_blue"
+        android:progressBackgroundTint="#EEEEEE" />
+
+    <!-- Status Text -->
+    <TextView
+        android:id="@+id/tvProgressStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Starting download..."
+        android:textColor="@color/grey_text"
+        android:textSize="12sp"
+        android:gravity="center" />
+
+</LinearLayout>

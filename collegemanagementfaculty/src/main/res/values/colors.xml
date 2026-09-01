@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Basic Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#1A1C1E</color>
+    <color name="transparent">#00000000</color>
+    <color name="grey">#9E9E9E</color>
+    <color name="blue">#2196F3</color>
+
+    <!-- Brand Colors (Modern Blue) -->
+    <color name="colorPrimary">#0061A4</color>
+    <color name="primary">#0061A4</color>
+    <color name="colorPrimaryDark">#00467D</color>
+    <color name="primary_dark">#00467D</color>
+    <color name="colorPrimaryLight">#D1E4FF</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="tagline_white">#CCFFFFFF</color> <!-- 80% opacity white -->
+    <!-- Neutral / Surface Colors -->
+    <color name="bg_grey">#F8F9FA</color>
+    <color name="background">#F8F9FA</color>
+    <color name="screen_background">#F8F9FA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#E1E2EC</color>
+    <color name="grey_light">#E0E0E0</color>
+    <color name="grey_text">#616161</color>
+    <color name="grey_dark">#424242</color>
+    <color name="textPrimary">#1A1C1E</color>
+    <color name="textSecondary">#616161</color>
+
+    <!-- Status Colors -->
+    <color name="green_primary">#16A34A</color>
+    <color name="green">#16A34A</color>
+    <color name="colorSuccess">#16A34A</color>
+    <color name="green_dark">#15803D</color>
+    <color name="red_400">#EF4444</color>
+    <color name="red">#EF4444</color>
+    <color name="colorError">#EF4444</color>
+    <color name="orange_500">#F59E0B</color>
+    <color name="orange">#F59E0B</color>
+    <color name="colorWarning">#F59E0B</color>
+    <color name="purple">#7C3AED</color>
+    
+    <!-- Legacy Support -->
+    <color name="purple_200">#D0BCFF</color>
+    <color name="purple_500">#6750A4</color>
+    <color name="purple_700">#4F378B</color>
+    <color name="teal_200">#80D8FF</color>
+    <color name="teal_700">#00B0FF</color>
+
+    <!-- Attendance specific -->
+    <color name="attendancePresent">#16A34A</color>
+    <color name="attendanceAbsent">#EF4444</color>
+    <color name="attendanceLate">#F59E0B</color>
+    <color name="attendanceLeave">#9E9E9E</color>
+
+    <!-- UI Component Colors -->
+    <color name="blue_light">#E3F2FD</color>
+    <color name="icon_blue_bg">#E3F2FD</color>
+    <color name="icon_blue">#E3F2FD</color>
+    <color name="icon_green">#E8F5E9</color>
+    <color name="icon_orange">#FFF3E0</color>
+    <color name="icon_purple">#F3E5F5</color>
+    <color name="inputBackground">#F1F3F4</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="divider_color">#F0F0F0</color>
+    
+    <!-- Stat Colors -->
+    <color name="statBlueLight">#E3F2FD</color>
+    <color name="statGreenLight">#E8F5E9</color>
+    <color name="statOrangeLight">#FFF3E0</color>
+    <color name="statRedLight">#FFEBEE</color>
+    
+    <!-- Dashboard specific -->
+    <color name="dashboard_background">#F8F9FA</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="card_title">#1A1C1E</color>
+    <color name="card_subtitle">#616161</color>
+
+    <!-- Login Specific Colors -->
+    <color name="login_welcome_text">#1565C0</color>
+    <color name="login_title_text">#111322</color>
+    <color name="login_label_text">#262847</color>
+    <color name="login_icon_tint">#2196F3</color>
+    <color name="login_hint_text">#9CA0C0</color>
+    <color name="login_link_text">#2196F3</color>
+    <color name="login_secondary_text">#6B7280</color>
+</resources>

@@ -1,0 +1,87 @@
+App Name: Scholar Portal (Student App)
+Role: Student
+
+=========================================
+1. TECHNOLOGIES & LIBRARIES USED
+=========================================
+- Language: Kotlin
+- UI/Architecture: Android Jetpack (Navigation Component, Fragments, Material Design)
+- Backend/Database: Firebase Authentication, Cloud Firestore
+- Authentication: Google Credentials (play-services-auth, googleid)
+- Networking: OkHttp
+- Payment Gateway: Razorpay (Checkout SDK for online fee payments)
+- Image Processing: Glide, CircleImageView
+- Email Support: JavaMail (android-mail, android-activation) for secure communications / OTPs.
+
+=========================================
+2. FEATURES & ACTIONS
+=========================================
+What a Student can do:
+- User Authentication: Login securely, Register, Forgot Password, and Change Password functionality.
+- Dashboard/Home: View a high-level overview of their academic status, recent assignments, schedule snippets, and total attendance percentage.
+- Profile Management: View their detailed personal and academic student profile.
+- Attendance Viewer: View their subject-wise daily attendance breakdown (present vs. absent) synced from the faculty logs.
+- Assignments Space: View the list of assigned tasks, their due dates, and open the assignment documents.
+- Timetable Viewer: View their specific class schedule and daily timetable categorized by days.
+- Study Materials: Browse subjects and view/download study materials (PDFs and docs) provided by faculty.
+- Fees Management: View total fees pending, initiate secure online payment via Razorpay, and generate/view fee payment receipts.
+
+=========================================
+3. SYSTEM FLOW
+=========================================
+1. Initialization & Auth: Student launches the app, proceeds to login via Firebase Auth. App utilizes SyncManager to pre-fetch critical user data.
+2. Home Fragment: Fetches basic student details, division info, and high-level attendance summary from "studentSummary" to project on the dashboard.
+3. Fees Payment Flow: Student navigates to Fees -> Clicks Pay -> App initializes Razorpay SDK with the required amount -> On success signature from Razorpay, App updates the "fees" collection in Firestore to reflect the payment.
+4. Academic Checking Flow: Student navigates to Attendance / Assignments / Materials -> App queries respective Firestore collections filtering by the student's `courseId`, `year`, and `semester` -> Displays data to the student cleanly via UI components.
+
+=========================================
+4. USE CASE DIAGRAM (TEXTUAL REPRESENTATION)
+=========================================
+Actor: Student
+Use Cases:
+- [Login / Adjust Credentials]
+- [View Academic Dashboard]
+- [View Persona Profile]
+- [View Class Timetable]
+- [Check Attendance History]
+- [View & Download Study Materials]
+- [View Assignments & Deadlines]
+- [View Fee Status & Pay Fees Online] ---> Extends [Download Fee Receipt]
+
+=========================================
+5. DATA FLOW DIAGRAM (DFD) - TEXTUAL
+=========================================
+Level 0 (Context Diagram):
+[Student] <====> (Scholar Portal System) <====> [Firebase Auth & Firestore] / [Razorpay Gateway]
+
+Level 1:
+- Process 1.0 (Fee Payment Process): [Student] initiates payment -> (Process 1.0) -> Requests transaction from [Razorpay Gateway] -> Returns success -> (Process 1.0) -> Updates Paid Status in [Firestore "fees"].
+- Process 2.0 (Academic Data Retrieval): (Process 2.0) -> Synchronously queries [Firestore "assignments", "study_materials", "studentSummary"] using Student ID params -> Renders formatted list views to [Student].
+- Process 3.0 (Authentication / Recovery): [Student] requests password reset -> (Process 3.0) -> Triggers [JavaMail SMTP] -> Dispatches Email to Student's Mailbox.
+
+=========================================
+6. ER DIAGRAM DETAILS (COLLECTIONS & FIELDS)
+=========================================
+Main fields extracted from Student App models interacting with Firestore:
+
+1. "students" Collection (Read/Update):
+   - id, fullName, rollNumber, email, phone (String)
+   - courseId, divisionId, currentYear, currentSemester (String)
+   - (Uses data inserted by Admin Portal)
+
+2. "studentSummary" Collection (Read):
+   - Holds aggregate attendance points for quick load.
+   - StudentSubjectAttendance mapping: subjectName, subjectCode (String), present (Int), absent (Int), total (Int), percentage (Int computed).
+
+3. "fees" Collection:
+   - studentId (String)
+   - totalFees, paidFees, pendingFees (Double)
+   - paymentHistory (List of transactions)
+   - Status (Paid / Partial / Unpaid)
+
+4. "assignments" & "study_materials" Collections (Read-Only references):
+   - AssignmentModel: id, title, description, year, semester, subject, fileUrl, dueDate, courseId.
+   - MaterialModel: id, title, description, subject, fileUrl, fileType, courseId.
+
+5. "divisions" Collection & "timetable" Subcollection (Read-Only):
+   - MyLecture: slotId, divisionId, day, timeFrom, timeTo, subjectName, roomNo.

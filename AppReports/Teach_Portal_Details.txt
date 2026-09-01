@@ -1,0 +1,104 @@
+App Name: Teach Portal (Faculty App)
+Role: Faculty / Teacher
+
+=========================================
+1. TECHNOLOGIES & LIBRARIES USED
+=========================================
+- Language: Kotlin
+- UI/Architecture: Android Jetpack (Navigation Component, Fragments, Material Design)
+- Backend/Database: Firebase Authentication, Cloud Firestore
+- Authentication: Google Credentials (play-services-auth, googleid)
+- Networking / Cloud: OkHttp, Cloudinary (for remote file storage of study materials)
+- Image Processing: Glide, uCrop, CircleImageView
+- Email Support: JavaMail (android-mail, android-activation) for sending notifications/OTPs
+
+=========================================
+2. FEATURES & ACTIONS
+=========================================
+What a Faculty member (both HOD and standard) can do:
+- User Authentication: Login, Register, Forgot Password, and Change password natively.
+- Profile Management: View and manage their faculty profile details.
+- Study Materials: Add new study materials (pdfs, docs, links) hosted via Cloudinary for subjects, and edit/delete materials they own.
+- Assignments: Create and distribute new assignments (uploading documents/links) to specific courses/semesters, and view the list of existing assignments.
+
+Specific Actions for Standard Faculty (Role: "Faculty"):
+- Dashboard/Home: Views personal stats (number of lectures today) and their immediate upcoming lectures.
+- Attendance: Marks daily attendance for students enrolled in their assigned division classes.
+- Student Details: Accesses the list of students specifically assigned to their lectures/divisions.
+- Timetable: Views their personal teaching schedule (My Lectures).
+
+Specific Actions for Head of Department (Role: "HOD"):
+- Dashboard/Home: Views high-level aggregated data for the entire course (Total Students, Total Faculty, Total Subjects in the course).
+- Timetable Management: Can view, create, edit, and delete the master division weekly timetables.
+- Student Details: Can view all students across all divisions belonging to their course.
+
+=========================================
+3. SYSTEM FLOW
+=========================================
+1. Initialization & Auth: Faculty launches the app. If session exists (SessionManager), bypasses login. Otherwise, logs in via Firebase Auth.
+2. Home Fragment: App fetches current faculty details from "faculties" collection and their day's schedule from "timetable" subcollection to populate the dashboard.
+3. Marking Attendance Flow: Faculty selects a division -> App fetches enrolled students from "students" collection -> Faculty toggles statuses -> App writes to "attendance" collection and updates "studentSummary" for each student.
+4. Uploading Material Flow: Faculty selects a file -> File securely uploaded to Cloudinary SDK -> Returns standard URL -> Saves Material object with URL in Firestore "study_materials".
+5. Communication: Actions like Forgot Password trigger JavaMail to send an automated SMTP email to the user's registered email address.
+
+=========================================
+4. USE CASE DIAGRAM (TEXTUAL REPRESENTATION)
+=========================================
+Actor: Faculty (Standard)
+Use Cases:
+- [Login / Register / Recover Password]
+- [View Personal Dashboard (Lectures Today)]
+- [View Profile]
+- [View Personal Timetable]
+- [Mark Student Attendance] ---> Extends [View Students in Division]
+- [Manage Study Materials] ---> Includes [Upload Material to Cloudinary], [Delete Material]
+- [Manage Assignments] ---> Includes [Create Assignment], [Set Due Date]
+
+Actor: HOD (Head of Department)
+Use Cases (Inherits all Standard Faculty use cases, plus):
+- [View Course-Level Dashboard] (Total Students, Faculty, Subjects)
+- [Manage Division Timetables] ---> Includes [Create Time Slot], [Edit Time Slot], [Delete Time Slot]
+- [View All Course Students]
+
+=========================================
+5. DATA FLOW DIAGRAM (DFD) - TEXTUAL
+=========================================
+Level 0 (Context Diagram):
+[Faculty] <====> (Teach Portal System) <====> [Firebase Auth & Firestore] / [Cloudinary]
+
+Level 1:
+- Process 1.0 (Attendance Processing): [Faculty] submits attendance -> (Process 1.0) -> Writes log in [Firestore "attendance"] and increments counters in [Firestore "studentSummary"].
+- Process 2.0 (Material Upload Processing): [Faculty] uploads document -> (Process 2.0) -> Sends file to [Cloudinary Cloud] -> Receives File URL -> Saves metadata in [Firestore "study_materials"].
+- Process 3.0 (Schedule Retrieval): (Process 3.0) -> Fetches day's slots from [Firestore "divisions/{id}/timetable"] -> Formats as MyLecture -> Displays to [Faculty].
+
+=========================================
+6. ER DIAGRAM DETAILS (COLLECTIONS & FIELDS)
+=========================================
+Main fields extracted from Faculty App models interacting with Firestore:
+
+1. "assignments" Collection:
+   - id, title, description (String)
+   - year, semester, subject (String)
+   - fileUrl, fileName (String)
+   - dueDate, createdAt, updatedAt (Long/Timestamp)
+   - createdBy (String - Faculty ID), courseId (String)
+
+2. "study_materials" Collection:
+   - documentId (String)
+   - courseId, courseName (String)
+   - title, description (String)
+   - year, semester, subject (String)
+   - fileUrl, fileName, fileType (String)
+   - uploadedBy (String - Faculty ID), uploadedByName (String)
+   - uploadedAt, updatedAt (Long)
+
+3. "faculties" Collection (Read/Update):
+   - Accesses fields created by Admin (id, fullName, email, courseCode, etc.)
+
+4. "students" & "studentSummary" Collections (Read/Update):
+   - Reads student list (id, fullName, rollNumber)
+   - Updates studentSummary: Increments 'total' and 'present' or 'absent' counts dynamically.
+   - StudentAttendanceItem structure: id, studentId, studentName, rollNumber, status (Present/Absent).
+
+5. "divisions" Collection & "timetable" Subcollection:
+   - Timetable Model (TimeSlot/MyLecture): slotId, divisionId, divisionName, day, timeFrom, timeTo, subjectName, subjectCode, roomNo, slotType (e.g. "lecture" or "lab").

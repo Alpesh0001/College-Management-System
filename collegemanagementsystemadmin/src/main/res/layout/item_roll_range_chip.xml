@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style="@style/Widget.Material3.Chip.Assist"
+    app:chipBackgroundColor="#E3F2FD"
+    app:chipStrokeColor="@color/colorPrimary"
+    app:chipStrokeWidth="1dp"
+    app:chipIconTint="@color/colorPrimary"
+    app:closeIconEnabled="true"
+    app:closeIconTint="#EF4444"
+    android:textColor="@color/colorPrimary"
+    android:textStyle="bold"
+    android:textSize="13sp"/>

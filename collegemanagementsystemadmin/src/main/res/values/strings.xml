@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Admin Portal</string>
+
+    <string name="add_manage_students"><![CDATA[Add & manage students]]></string>
+    <string name="create_edit_courses"><![CDATA[Create & edit courses]]></string>
+
+</resources>

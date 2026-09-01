@@ -1,0 +1,115 @@
+========================================
+COLLEGE MANAGEMENT SYSTEM - PROJECT INFO
+========================================
+
+1. LIBRARIES & DEPENDENCIES USED
+--------------------------------
+The project is built on modern Android technologies using Kotlin. Across the three modules (`app` for Students, `collegemanagementfaculty` for Faculty, and `collegemanagementsystemadmin` for Admin), the following libraries are utilized:
+
+- UI & Design:
+  * Google Material Design (`material`)
+  * AndroidX AppCompat & ConstraintLayout
+  * CircleImageView (`de.hdodenhof:circleimageview:3.1.0`)
+  * AndroidX Splashscreen API
+
+- Architecture & Navigation:
+  * Android Navigation Component (`navigation-fragment-ktx`, `navigation-ui-ktx`)
+  * AndroidX Activity & Fragment KTX
+
+- Backend & Authentication:
+  * Firebase Auth (`firebase-auth`)
+  * Firebase Firestore (`firebase-firestore`) for NoSQL Database
+  * Google Identity Credentials (`credentials-play-services-auth`, `googleid`)
+
+- Networking & APIs:
+  * Retrofit2 & Gson Converter (`retrofit`, `converter-gson`)
+  * OkHttp3 (`okhttp`)
+
+- Image & Media Processing:
+  * Glide (`glide`) for image loading
+  * uCrop (`ucrop`) for image cropping
+  * Cloudinary Android SDK (`cloudinary-android`) for cloud media storage
+
+- Miscellaneous:
+  * Razorpay Checkout (`razorpay:checkout`) for Fee payments
+  * JavaMail API (`android-mail`, `android-activation`) for sending emails
+
+
+2. ROLES & FEATURES
+--------------------------------
+The application supports 4 primary roles: Admin, HOD, Faculty, Student.
+
+[Admin Panel Features]
+- Dashboard analytics (gross revenue, totals)
+- Add and Manage Courses, Subjects, and Divisions
+- Manage Faculties and HODs (Assign courses and departments)
+- Add and Manage Students (Admissions)
+- Manage Fees & Payments Structure
+- Manage Library Data
+
+[HOD & Faculty App Features]
+- View Division Timetable and daily schedules
+- Take and manage Student Attendance
+- Upload and manage Study Materials (PDF, Image, Doc)
+- Create and evaluate Student Assignments
+- View Student lists and details by division
+- Update profile and change passwords
+
+[Student App Features]
+- Login securely via Credentials
+- View Division Timetable
+- Access Study Materials uploaded by Faculty
+- View and submit Assignments
+- View subject-wise Attendance reports
+- View and pay Fees online via Razorpay integration
+- Profile management and Password changes
+
+
+3. FIREBASE COLLECTIONS (~15+ Collections)
+--------------------------------
+Total Collections Found: 16
+(students, courses, fees, study_materials, assignments, faculty/faculties, studentSummary, divisions, timetable, subjects, attendance, meta, byCourseYear, admin, library)
+
+* Note: Some collections might be sub-collections or alternate names depending on the operation.
+
+[1] admin
+Fields: id, email, password, role
+
+[2] courses
+Fields: id (String), name (String), code (String), years (String), status (String)
+
+[3] subjects
+Fields: id, name, subjectId, courseId, courseName, year, semester, status
+
+[4] divisions
+Fields: id, divisionName, courseId, courseName, courseCode, year, semester, capacity (Int), currentStrength (Int), rollNumberRanges (List of start/end), classTeacherId, classTeacherName, classTeacherEmail, status, createdAt, updatedAt
+
+[5] faculties
+Fields: id, employeeId, fullName, dateOfBirth, gender, phone, email, address, photoUrl, qualification, specialization, experience, joiningDate, designation, role (Faculty/HOD), courseCode, courseName, courseId, salary (Int), status, tempPassword, passwordStatus, createdAt, updatedAt
+
+[6] students
+Fields: id, fullName, grNo, rollNo, dob, gender, bloodGroup, phone, email, address, courseId, courseName, courseCode, year, semester, admissionYear, status, tempPassword, passwordStatus, photoUrl, createdAt, updatedAt
+
+[7] study_materials
+Fields: id, title, description, subject, year, semester, fileUrl, fileName, fileType, courseId, createdBy, uploadedAt (Long)
+
+[8] assignments
+Fields: id, title, description, year, semester, subject, fileUrl, fileName, dueDate (Long), createdAt (Long), updatedAt (Long), createdBy, courseId
+
+[9] timetable
+Fields: id, day, timeFrom, timeTo, subjectName, subjectCode, facultyName, facultyId, roomNo, slotType (lecture/lab/break)
+
+[10] attendance
+Documented via items: studentId, studentName, rollNo, rollNumber (Int), status (e.g. Present/Absent). Also stores aggregate data: subjectName, subjectCode, present (Int), absent (Int), total (Int), percentage.
+
+[11] fees
+Tracks Razorpay transaction records, fee structures per course/division, student payment status, amounts, and receipts.
+
+[12] studentSummary
+Aggregate reporting info for analytics and quick summary lookups for students.
+
+[13] meta / byCourseYear
+Used to maintain global counters, statistics, and enrollment limits for different courses and admission years.
+
+[14] library
+Fields related to books available, issues, and returns for students and faculties.

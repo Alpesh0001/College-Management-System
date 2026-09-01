@@ -1,0 +1,86 @@
+========================================
+COLLEGE MANAGEMENT SYSTEM - USE CASES
+========================================
+
+This document outlines the specific Use Cases and features available for each of the 4 primary roles in the College Management System: Admin, HOD, Faculty, and Student.
+
+
+1. ADMIN USE CASES
+--------------------------------
+The Admin has full control over the structural and administrative data of the college management system.
+
+- Dashboard & Analytics: 
+  * View overall statistics (total revenue, total students, total faculties, total courses)
+  * View graphical or summarized reports on college activities.
+- Course Management:
+  * Add, Update, and Delete Courses (e.g., B.Tech, MCA).
+  * Manage course details and duration.
+- Subject Management:
+  * Add, Update, and Delete Subjects for specific courses and semesters.
+- Division/Class Management:
+  * Create and Manage Divisions/Classes.
+  * Assign students to divisions.
+  * Assign Class Teachers to divisions.
+- User Management:
+  * Faculty Management: Add new Faculties and HODs, assign them to departments/courses, edit details.
+  * Student Management: Handle new student admissions, generate IDs/Roll numbers, view and update student details.
+- Fee Management:
+  * Define fee structures.
+  * View overall fee collections and pending payments.
+
+
+2. HOD (HEAD OF DEPARTMENT) USE CASES
+--------------------------------
+The HOD role is an elevated faculty role with department-level administrative privileges, specifically related to scheduling.
+
+- Timetable Management:
+  * Create and Manage Timetables for the entire department/divisions.
+  * Assign faculties to specific time slots and subjects.
+- Faculty Level Privileges:
+  * View departmental and assigned Timetables.
+  * Add, Edit, and Delete Study Materials (PDFs, docs, images).
+  * Add, Edit, and Delete Assignments for subjects they manage.
+  * Mark and track Student Attendance.
+  * View the list of students in their assigned divisions.
+- Profile Management:
+  * Update profile information and change the account password.
+
+
+3. FACULTY USE CASES
+--------------------------------
+Faculties manage daily academic operations for the subjects and classes they are assigned to.
+
+- View Timetable:
+  * Check their assigned daily schedule and classes.
+- Academic Materials:
+  * Add, Edit, and Delete Study Materials for their assigned subjects.
+- Assignment Management:
+  * Create, Edit, and Delete Assignments with specific due dates.
+  * View assignment submissions from students.
+- Attendance Management:
+  * Mark daily attendance for students in their lectures/classes.
+  * View attendance history for their subjects.
+- Student Management:
+  * View details and lists of students in their assigned divisions.
+- Profile Management:
+  * Update personal information and change password.
+
+
+4. STUDENT USE CASES
+--------------------------------
+Students use the app to stay updated on their academic schedule, materials, and administrative tasks.
+
+- Academic Schedule:
+  * View the daily/weekly Timetable for their specific division.
+- Study Materials & Assignments:
+  * View and download Study Materials uploaded by faculties.
+  * View assigned Assignments, descriptions, and due dates.
+- Attendance Tracking:
+  * View their own subject-wise Attendance records and percentage.
+- Fee Management:
+  * View total fees, paid amounts, and pending dues.
+  * Pay pending fees online securely via Razorpay.
+  * Download/view fee payment receipts.
+- Profile Management:
+  * View personal admission and structural details.
+  * Update contact information and change password.

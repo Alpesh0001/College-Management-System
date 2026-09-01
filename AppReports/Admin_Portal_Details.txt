@@ -1,0 +1,110 @@
+App Name: Admin Portal (Admin App)
+Role: Administrator
+
+=========================================
+1. TECHNOLOGIES & LIBRARIES USED
+=========================================
+- Language: Kotlin
+- UI/Architecture: Android Jetpack (AppCompat, ConstraintLayout, Material Design, Activity/Fragment KTX)
+- Backend/Database: Firebase Authentication, Cloud Firestore
+- Authentication: Google Credentials (play-services-auth, googleid)
+- Networking: Retrofit, OkHttp, Gson (for external API communications if any)
+- Image Processing: Glide, uCrop, CircleImageView
+- Other: Splashscreen API
+
+=========================================
+2. FEATURES & ACTIONS
+=========================================
+What an Admin can do:
+- User Authentication: Admin Login securely.
+- Course Management: Add new courses, view course details, and manage existing courses.
+- Division Management: Add new divisions/classes, filter and view divisions, assign class teachers.
+- Faculty Management: Add new faculty members, onboard them (auto-generate employee IDs, temp passwords), and view faculty listings.
+- Student Management: Add new students to the system (auto-generate roll numbers), view student list, and manage their details.
+- Subject Management: Add new subjects, assign them to courses/semesters, and view all subjects.
+- Fees Management: Update college fees, filter students by fee status, and manage student fee records.
+
+=========================================
+3. SYSTEM FLOW
+=========================================
+1. Initialization: Admin opens the app and observes the Splash Screen.
+2. Login Flow: Admin logs in using email/password or Google Auth.
+3. Dashboard: Upon successful login, Admin lands on the Admin Dashboard displaying aggregate counts (total students, total faculty, total courses).
+4. Navigation: From the Dashboard, Admin selects a module (e.g., "Manage Students").
+5. Listing: The app securely fetches the list of entities from Firestore and displays them in a Recycler View.
+6. Data Entry: Admin taps "Add New". A form opens where Admin fills in details. Image uploads (if any) are processed via uCrop/Glide.
+7. Cloud Sync: The app validates the data, generates unique IDs (like roll numbers using the "meta" collection), and pushes the document to Firestore.
+
+=========================================
+4. USE CASE DIAGRAM (TEXTUAL REPRESENTATION)
+=========================================
+Actor: Administrator
+Use Cases:
+- [Login to Portal]
+- [View Dashboard Analytics]
+- [Manage Courses] ---> Includes [Add Course], [View Course]
+- [Manage Subjects] ---> Includes [Add Subject], [Assign to Semester]
+- [Manage Divisions] ---> Includes [Add Division], [Assign Class Teacher]
+- [Manage Faculties] ---> Includes [Add Faculty], [View Faculty Profile]
+- [Manage Students] ---> Includes [Add Student], [View Student Profile]
+- [Manage Fees] ---> Includes [View Students by Fee Status]
+
+=========================================
+5. DATA FLOW DIAGRAM (DFD) - TEXTUAL
+=========================================
+Level 0 (Context Diagram):
+[Administrator] <====> (Admin Portal System) <====> [Firebase Auth & Firestore]
+
+Level 1:
+- Process 1.0 (Authentication): [Administrator] inputs credentials -> (Process 1.0) -> [Firebase Auth] validates and returns auth token.
+- Process 2.0 (Data Entry): [Administrator] inputs new Student/Faculty details -> (Process 2.0 validates and formats) -> Stores in [Firestore Collections].
+- Process 3.0 (Data Retrieval): (Process 3.0) requests list of Divisions/Courses from -> [Firestore Collections] -> Displays formatted response to [Administrator].
+
+=========================================
+6. ER DIAGRAM DETAILS (COLLECTIONS & FIELDS)
+=========================================
+1. "courses" Collection:
+   - id (String)
+   - name (String)
+   - code (String)
+   - years (String)
+   - status (String)
+
+2. "divisions" Collection:
+   - id (String)
+   - divisionName (String)
+   - courseId (String), courseName (String), courseCode (String)
+   - year (String), semester (String)
+   - capacity (Int), currentStrength (Int)
+   - rollNumberRanges (List)
+   - classTeacherId (String), classTeacherName (String), classTeacherEmail (String)
+   - status (String)
+   - createdAt, updatedAt (Timestamp)
+
+3. "faculties" Collection:
+   - id, employeeId (String)
+   - fullName, gender, dateOfBirth, phone, email, address (String)
+   - photoUrl (String)
+   - qualification, specialization, experience (String)
+   - joiningDate, designation, role (String - Faculty/HOD)
+   - courseCode, courseName, courseId (String)
+   - salary (Int)
+   - status, tempPassword, passwordStatus (String)
+   - createdAt, updatedAt (Timestamp)
+
+4. "students" Collection:
+   - id, rollNumber (String)
+   - courseId, courseName, courseCode (String)
+   - admissionYear, expectedGraduationYear, currentYear, currentSemester (String)
+   - divisionId, divisionName (String)
+   - status, shift (String)
+   - photoUrl, fullName, gender, dateOfBirth, bloodGroup, aadharNumber (String)
+   - email, phone, permanentAddress, currentAddress (String)
+   - Parent/Guardian Info: fatherName, fatherPhone, motherName, motherPhone, localGuardianName, localGuardianPhone
+   - Academic Info: tenthSchool, tenthBoard, tenthPercentage, twelfthSchool, twelfthBoard, twelfthPercentage, twelfthStream, previousCollege, graduationPercentage
+   - Bank Info: bankName, accountNumber, ifscCode, accountHolderName, branchName
+   - tempPassword, passwordStatus (String)
+   - createdAt, updatedAt (Timestamp)
+
+5. "meta" Collection:
+   - Used for system counters (e.g., document "employee_counters" or "byCourseYear") to generate sequential Employee IDs and Roll Numbers.

@@ -1,0 +1,40 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# LOCAL CONFIGURATION — NEVER COMMIT THIS
+# ─────────────────────────────────────────────────────────────────────────────
+# local.properties contains your real SDK path, API keys, passwords, and tokens.
+# It must NEVER be committed to version control.
+local.properties
+
+# The .example file IS safe to commit — it contains no real secrets.
+!local.properties.example
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ANDROID BUILD ARTIFACTS
+# ─────────────────────────────────────────────────────────────────────────────
+*.iml
+.gradle
+/build
+/*/build
+/captures
+.externalNativeBuild
+.cxx
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ANDROID STUDIO / IntelliJ IDE FILES
+# ─────────────────────────────────────────────────────────────────────────────
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+*.ipr
+*.iws
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KEYSTORE / SIGNING (if you ever add signing config)
+# ─────────────────────────────────────────────────────────────────────────────
+*.jks
+*.keystore
+keystore.properties

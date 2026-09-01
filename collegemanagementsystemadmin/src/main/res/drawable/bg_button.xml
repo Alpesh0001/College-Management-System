@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- subtle shadow under button -->
+    <item>
+        <shape>
+            <solid android:color="#33000000" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+
+    <!-- main gradient pill -->
+    <item
+        android:left="0dp"
+        android:top="2dp"
+        android:right="0dp"
+        android:bottom="2dp">
+        <shape>
+            <gradient
+                android:startColor="#0061A4"
+            android:endColor="#2563EB"
+            android:angle="0" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+
+</layer-list>

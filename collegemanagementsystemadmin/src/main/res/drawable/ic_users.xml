@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?attr/colorControlNormal">
+
+    <!-- Two-person group (Material 'groups' style) -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M16,11c1.66,0 2.99,-1.34 2.99,-3S17.66,5 16,5s-3,1.34 -3,3 1.34,3 3,3zM8,11c1.66,0 3,-1.34 3,-3S9.66,5 8,5 5,6.34 5,8s1.34,3 3,3zM8,13c-2.67,0 -8,1.34 -8,4v2h10v-2c0,-1.66 0.69,-3.1 1.76,-4.22C10.61,13.26 9.22,13 8,13zM16,13c-0.84,0 -1.65,0.1 -2.41,0.29 1.78,1.02 3.41,2.61 3.41,4.71v2h7v-2c0,-2.66 -5.33,-4 -8,-4z"/>
+</vector>

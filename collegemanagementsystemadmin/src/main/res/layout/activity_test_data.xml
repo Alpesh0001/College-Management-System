@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#F3F4F6"
+    android:padding="24dp">
+
+    <!-- ✅ Icon -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🧪"
+        android:textSize="64sp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- ✅ Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Data Generator"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#111827"
+        android:layout_marginBottom="8dp" />
+
+    <!-- ✅ Subtitle -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adds 30 test students to Firestore"
+        android:textSize="14sp"
+        android:textColor="#6B7280"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <!-- ✅ Info Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:strokeWidth="0dp"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Division -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Division"
+                    android:textSize="13sp"
+                    android:textColor="#6B7280" />
+
+                <TextView
+                    android:id="@+id/tvInfoDivision"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SE-A"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#111827" />
+
+            </LinearLayout>
+
+            <!-- Course -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Course"
+                    android:textSize="13sp"
+                    android:textColor="#6B7280" />
+
+                <TextView
+                    android:id="@+id/tvInfoCourse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BCA"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#111827" />
+
+            </LinearLayout>
+
+            <!-- Students -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Students"
+                    android:textSize="13sp"
+                    android:textColor="#6B7280" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30 students"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#111827" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ✅ Status Text -->
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Press button to add 30 test students"
+        android:textSize="14sp"
+        android:textColor="#374151"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- ✅ Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone" />
+
+    <!-- ✅ Add Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddStudents"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="➕ Add 30 Test Students"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- ✅ Clear Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnClearStudents"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="🗑️ Clear Test Students"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+</LinearLayout>
